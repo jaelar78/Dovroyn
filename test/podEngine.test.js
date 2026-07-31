@@ -10,7 +10,7 @@ test('catalog includes more than 30 honestly-labelled planning platforms', () =>
 
 test('Instagram includes relevant hashtags while Facebook removes them', () => {
   const instagram = formatPlatformPost({ platformKey: 'instagram', body: 'Meet the new winter range.', keywords: ['Winter Skin', 'Australian Beauty'] });
-  const facebook = formatPlatformPost({ platformKey: 'facebook', body: 'Meet #WinterSkin today.', keywords: ['Australian Beauty'] });
+  const facebook = formatPlatformPost({ platformKey: 'facebook', body: 'Meet #WinterSkin today (#AustralianBeauty).', keywords: ['Australian Beauty'] });
 
   assert.match(instagram.content, /#WinterSkin/);
   assert.doesNotMatch(facebook.content, /#/);

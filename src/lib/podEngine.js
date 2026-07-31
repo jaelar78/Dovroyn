@@ -19,7 +19,7 @@ export function formatPlatformPost({ platformKey, body, keywords = [], callToAct
 
   let content = parts.join('\n\n');
   if (platform.rules.hashtagStyle === 'avoid') {
-    content = content.replace(/(^|\s)#[a-z0-9_]+/gi, '').replace(/[ \t]{2,}/g, ' ').trim();
+    content = content.replace(/#[a-z0-9_]+/gi, '').replace(/[ \t]{2,}/g, ' ').trim();
   }
   if (platform.rules.maxCharacters && content.length > platform.rules.maxCharacters) {
     content = `${content.slice(0, Math.max(0, platform.rules.maxCharacters - 1)).trimEnd()}…`;
