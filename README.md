@@ -1,55 +1,53 @@
-# Dovroyn — AI Social Media Manager
+# Dovroyn
 
-Marketing landing site for Dovroyn (dovroyn.com) with a live AI chatbot preview powered by an LLM backend.
+Dovroyn is a React + Vite application for private AI marketing pods, with:
 
-## Stack
+- Dedicated pod-first landing and navigation experience
+- Login and signup with Supabase Auth
+- A lean outer pod library and a rich workspace inside each pod
+- Website/photo intake, AI direction approval and overrides, assets, social content, calendars, campaigns, analytics, collaborations, coming-soon pages, and budget/ad review
+- Server-side OpenAI Responses API routes for the public assistant and authenticated pod analysis
+- Dovroyn's responsive cream, navy, and gold interface with charts, modals, motion, and a command palette
+- Supabase Auth, private storage, row-level ownership policies, and pod persistence
+- Four recurring Stripe subscription tiers with monthly allowance windows
 
-- **Frontend**: React 19 + TypeScript + Vite + Tailwind CSS + shadcn/ui
-- **Backend**: Hono + tRPC 11 (type-safe API)
-- **AI**: OpenAI-compatible chat completions (configured via env vars)
-- **DB**: Drizzle ORM + MySQL (optional, scaffolded)
+## Setup
 
-## Develop
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Copy environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+3. Add the required browser and server values listed in `.env.example`. Keep `OPENAI_API_KEY` server-only and never prefix it with `VITE_`.
+4. Run locally:
+   ```bash
+   npm run dev
+   ```
+
+## Build
 
 ```bash
-npm install
-npm run dev        # http://localhost:3000 (frontend + API with HMR)
+npm run build
 ```
 
-## Build & run (self-hosted / Docker)
+Run the rule tests with:
 
 ```bash
-npm run build      # outputs dist/public (frontend) + dist/boot.js (server)
-npm start          # NODE_ENV=production node dist/boot.js on :3000
+npm test
 ```
 
-A `Dockerfile` is included for containerized deployment.
+## Supabase
 
-## Deploy to Vercel
+Review and run the SQL files in order:
 
-`vercel.json` configures two builds:
-- `serverless/handler.ts` → serverless function serving `/api/*`
-- static frontend from `dist/public`
+1. `supabase-migration.sql`
+2. `supabase-pod-workspace-migration.sql`
 
-Required environment variables (Vercel → Settings → Environment Variables):
+The second migration adds the internal pod features, hardens ownership policies, creates a private `pod-assets` bucket, and separates encrypted social-provider credentials into a non-exposed schema. It is not applied automatically.
 
-| Key | Purpose |
-| --- | --- |
-| `APP_ID` | Application ID |
-| `APP_SECRET` | JWT/session secret |
-| `DATABASE_URL` | MySQL connection string |
-| `DEFAULT_AI_API_KEY` | LLM API key (homepage chatbot) |
-| `DEFAULT_AI_BASE_URL` | LLM base URL, e.g. `https://agent-gw.kimi.com/coding/v1` |
-| `DEFAULT_AI_MODEL` | LLM model, e.g. `kimi:kimi-k2.5` |
+## Release gate
 
-## Project layout
-
-```
-api/            Hono + tRPC backend (chat.send = AI chatbot)
-contracts/      Shared types between frontend and backend
-serverless/     Vercel serverless entry
-db/             Drizzle schema (MySQL)
-src/
-  sections/     Landing page sections (Hero, Pricing, FAQ, ...)
-  components/   UI components (dovroyn/ = brand components, ui/ = shadcn)
-```
+Do not deploy solely because the build passes. First validate Stripe links and webhooks, run both migrations in the intended Supabase project, configure server-only API variables, complete each social provider's OAuth approval, and perform the landing/pod button audit described in `DOVROYN_PRODUCT_SPEC.md`.

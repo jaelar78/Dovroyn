@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
-  <circle cx="18" cy="20" r="14" fill="#9E9484" opacity="0.15"/>
-  <path d="M12 20c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="#9E9484" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <circle cx="18" cy="20" r="2.5" fill="#9E9484"/>
-  <path d="M23 15l3-3M13 15l-3-3M18 10v-3" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round"/>
-  <text x="38" y="26" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#3D3632" letter-spacing="0.5">Dovroyn</text>
-</svg>
