@@ -64,3 +64,7 @@ test('website analysis extracts readable text and removes executable page conten
   assert.match(text, /Calm skin care/);
   assert.doesNotMatch(text, /stealSecrets|display:none|<h1>/);
 });
+
+test('website analysis preserves invalid numeric entities without failing', () => {
+  assert.equal(extractReadableText('Price: &#999999999;'), 'Price: &#999999999;');
+});

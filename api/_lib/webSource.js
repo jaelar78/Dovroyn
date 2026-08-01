@@ -75,7 +75,7 @@ function decodeHtmlEntities(value) {
     if (entity[0] === '#') {
       const isHex = entity[1]?.toLowerCase() === 'x';
       const codePoint = Number.parseInt(entity.slice(isHex ? 2 : 1), isHex ? 16 : 10);
-      return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : match;
+      return Number.isInteger(codePoint) && codePoint <= 0x10FFFF ? String.fromCodePoint(codePoint) : match;
     }
     return named[entity.toLowerCase()] ?? match;
   });
