@@ -1453,16 +1453,108 @@ function PrivacyPage() {
   return (
     <LegalPageShell
       eyebrow="Privacy"
-      title="Privacy policy"
-      description="How Dovroyn handles information submitted through the website and product."
+      title="Privacy Policy"
+      description="Last updated: September 2026. This policy explains how Dovroyn collects, uses, and protects your personal information."
     >
-      <article className="stack" style={{ gap: '0.9rem' }}>
-        <h2 className="waitlist-heading" style={{ marginBottom: '0.4rem' }}>What we collect</h2>
-        <p className="subtle">We collect the details you voluntarily provide through account and contact forms, plus essential usage data needed to operate the site.</p>
-        <h3>How we use it</h3>
-        <p className="subtle">Information is used to provide support, respond to enquiries, improve the product, and share product updates when requested.</p>
-        <h3>Contact about privacy</h3>
-        <p className="subtle">For privacy enquiries, email <a href="mailto:support@dovroyn.com">support@dovroyn.com</a>.</p>
+      <article className="stack" style={{ gap: '1.2rem' }}>
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>1. Introduction</h2>
+          <p className="subtle">Dovroyn ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, application, and services (collectively, the "Services"). Please read this policy carefully. By using Dovroyn, you agree to the collection and use of information in accordance with this policy.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>2. Information We Collect</h2>
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>2.1 Personal Information</h3>
+          <p className="subtle">We may collect personal information that you voluntarily provide to us when you:</p>
+          <ul className="simple-list compact-list" style={{ marginLeft: '1.2rem', marginTop: '0.4rem' }}>
+            <li>Register for an account (name, email address)</li>
+            <li>Subscribe to a paid plan (billing information processed by Stripe)</li>
+            <li>Contact us through forms or email</li>
+            <li>Submit website URLs or upload images for pod analysis</li>
+          </ul>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>2.2 Usage Data</h3>
+          <p className="subtle">We automatically collect certain information when you visit, use, or navigate the Services. This may include:</p>
+          <ul className="simple-list compact-list" style={{ marginLeft: '1.2rem', marginTop: '0.4rem' }}>
+            <li>IP address and browser type</li>
+            <li>Device and operating system information</li>
+            <li>Pages viewed and features used</li>
+            <li>Time spent on the platform and interaction patterns</li>
+          </ul>
+
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>2.3 Cookies and Tracking Technologies</h3>
+          <p className="subtle">We use cookies and similar tracking technologies to enhance your experience, analyse usage patterns, and remember your preferences. You can control cookie settings through your browser. We use Vercel Analytics for aggregated, privacy-preserving usage statistics.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>3. How We Use Your Information</h2>
+          <p className="subtle">We use the information we collect for the following purposes:</p>
+          <ul className="simple-list compact-list" style={{ marginLeft: '1.2rem', marginTop: '0.4rem' }}>
+            <li><strong>Provide and maintain Services:</strong> To operate the platform, authenticate users, and deliver AI-generated marketing insights</li>
+            <li><strong>Improve our Services:</strong> To understand how users interact with Dovroyn and enhance functionality</li>
+            <li><strong>Communicate with you:</strong> To send service updates, respond to inquiries, and provide support</li>
+            <li><strong>Process payments:</strong> To handle subscriptions via Stripe (we do not store your full payment details)</li>
+            <li><strong>Ensure security:</strong> To detect and prevent fraud, abuse, or unauthorised access</li>
+            <li><strong>Legal compliance:</strong> To comply with applicable laws and regulations</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>4. How We Share Your Information</h2>
+          <p className="subtle">We do not sell your personal information. We may share information with:</p>
+          <ul className="simple-list compact-list" style={{ marginLeft: '1.2rem', marginTop: '0.4rem' }}>
+            <li><strong>Service Providers:</strong> Stripe (payment processing), Supabase (authentication and database), Vercel (hosting and analytics), OpenAI/Claude (AI analysis of your submitted content)</li>
+            <li><strong>Legal Requirements:</strong> When required by law, court order, or governmental regulation</li>
+            <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>5. Data Security</h2>
+          <p className="subtle">We implement appropriate technical and organisational measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction. This includes encryption in transit (TLS/SSL), secure authentication via Supabase, and regular security reviews. However, no method of transmission over the Internet or electronic storage is 100% secure.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>6. Data Retention</h2>
+          <p className="subtle">We retain your personal information for as long as necessary to provide the Services and fulfil the purposes outlined in this policy, unless a longer retention period is required by law. When you delete your account, we will delete or anonymise your personal data within 30 days, except where retention is necessary for legal obligations, dispute resolution, or enforcing our agreements.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>7. Your Rights</h2>
+          <p className="subtle">Depending on your location, you may have the following rights regarding your personal information:</p>
+          <ul className="simple-list compact-list" style={{ marginLeft: '1.2rem', marginTop: '0.4rem' }}>
+            <li><strong>Access:</strong> Request a copy of the personal data we hold about you</li>
+            <li><strong>Correction:</strong> Request that we correct inaccurate or incomplete information</li>
+            <li><strong>Deletion:</strong> Request deletion of your personal data ("right to be forgotten")</li>
+            <li><strong>Portability:</strong> Request transfer of your data to another service</li>
+            <li><strong>Objection:</strong> Object to certain types of processing, such as direct marketing</li>
+            <li><strong>Withdraw Consent:</strong> Withdraw consent where processing is based on consent</li>
+          </ul>
+          <p className="subtle" style={{ marginTop: '0.5rem' }}>To exercise these rights, contact us at <a href="mailto:support@dovroyn.com">support@dovroyn.com</a>. We will respond within 30 days.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>8. International Data Transfers</h2>
+          <p className="subtle">Your information may be transferred to and processed in countries other than your own, including the United States and Australia, where our service providers operate. We ensure appropriate safeguards are in place to protect your data during such transfers.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>9. Children's Privacy</h2>
+          <p className="subtle">Dovroyn is not intended for use by individuals under the age of 16. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately and we will delete it.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>10. Changes to This Policy</h2>
+          <p className="subtle">We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page with an updated "Last updated" date. Your continued use of the Services after such changes constitutes acceptance of the revised policy.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>11. Contact Us</h2>
+          <p className="subtle">If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+          <p className="subtle" style={{ marginTop: '0.4rem' }}><strong>Email:</strong> <a href="mailto:support@dovroyn.com">support@dovroyn.com</a><br />
+          <strong>Business:</strong> Anglow Digital PTY LTD<br />
+          <strong>Website:</strong> <a href="https://dovroyn.com">dovroyn.com</a></p>
+        </section>
       </article>
     </LegalPageShell>
   );
@@ -1472,16 +1564,121 @@ function TermsPage() {
   return (
     <LegalPageShell
       eyebrow="Terms"
-      title="Terms of use"
-      description="Website and product access is provided subject to these baseline terms."
+      title="Terms of Service"
+      description="Last updated: September 2026. Please read these terms carefully before using Dovroyn."
     >
-      <article className="stack" style={{ gap: '0.9rem' }}>
-        <h2 className="waitlist-heading" style={{ marginBottom: '0.4rem' }}>Use of service</h2>
-        <p className="subtle">You agree to use Dovroyn lawfully and to provide accurate details when creating an account or submitting forms.</p>
-        <h3>Accounts and billing</h3>
-        <p className="subtle">Paid plans are processed by Stripe checkout links. Subscription and renewal terms shown at checkout apply.</p>
-        <h3>Support</h3>
-        <p className="subtle">Questions about these terms can be sent to <a href="mailto:support@dovroyn.com">support@dovroyn.com</a>.</p>
+      <article className="stack" style={{ gap: '1.2rem' }}>
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>1. Acceptance of Terms</h2>
+          <p className="subtle">These Terms of Service ("Terms") constitute a legally binding agreement between you and Anglow Digital PTY LTD ("Dovroyn", "we", "us", or "our") governing your access to and use of the Dovroyn website, application, and AI marketing pod services (collectively, the "Services"). By creating an account, accessing, or using the Services, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree, you must not access or use the Services.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>2. Description of Services</h2>
+          <p className="subtle">Dovroyn provides AI-powered marketing planning tools that analyse websites, campaigns, and creative assets to generate marketing strategies, content calendars, and campaign recommendations. The Services are provided on an "as is" and "as available" basis. We reserve the right to modify, suspend, or discontinue any part of the Services at any time.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>3. User Accounts</h2>
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>3.1 Account Registration</h3>
+          <p className="subtle">To access certain features, you must create an account. You agree to provide accurate, current, and complete information during registration and to keep this information updated. You are responsible for maintaining the confidentiality of your account credentials.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>3.2 Account Security</h3>
+          <p className="subtle">You are solely responsible for all activities that occur under your account. You must notify us immediately of any unauthorised use or security breach. We are not liable for any loss or damage arising from your failure to secure your account.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>3.3 Account Termination</h3>
+          <p className="subtle">We reserve the right to suspend or terminate your account at our sole discretion if you violate these Terms or engage in prohibited conduct. Upon termination, your right to use the Services ceases immediately.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>4. Subscription and Billing</h2>
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>4.1 Payment Terms</h3>
+          <p className="subtle">Certain features require a paid subscription. All payments are processed securely through Stripe. By subscribing, you authorise us to charge your designated payment method for the subscription fees plus any applicable taxes. Prices are listed in USD unless otherwise stated.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>4.2 Billing Cycle</h3>
+          <p className="subtle">Subscriptions automatically renew at the end of each billing period (monthly or yearly) unless cancelled. You may cancel at any time through your account settings or by contacting us. Cancellations take effect at the end of the current billing period.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>4.3 Refunds</h3>
+          <p className="subtle">All fees are non-refundable except where required by law. We may, at our sole discretion, offer refunds or credits on a case-by-case basis.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>4.4 Price Changes</h3>
+          <p className="subtle">We reserve the right to change subscription fees at any time. Any price changes will take effect at the start of the next billing period after notice is provided.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>5. Intellectual Property</h2>
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>5.1 Our Property</h3>
+          <p className="subtle">Dovroyn and its original content, features, functionality, trademarks, logos, and designs are and will remain the exclusive property of Anglow Digital PTY LTD. These are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>5.2 Your Content</h3>
+          <p className="subtle">You retain ownership of any content you submit to Dovroyn (websites, images, brand materials, etc.). By submitting content, you grant us a limited licence to process, analyse, and store it solely for the purpose of providing the Services. We do not claim ownership of your original content or the AI-generated outputs from your pods.</p>
+          
+          <h3 style={{ fontSize: '1rem', margin: '0.8rem 0 0.3rem', color: 'var(--navy)' }}>5.3 AI-Generated Content</h3>
+          <p className="subtle">Marketing recommendations, strategies, and content ideas generated by Dovroyn's AI are provided for your use. You are responsible for reviewing, editing, and approving all AI-generated content before publication. We make no claims of originality for AI outputs and recommend human review before use in campaigns.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>6. Prohibited Conduct</h2>
+          <p className="subtle">You agree not to use the Services to:</p>
+          <ul className="simple-list compact-list" style={{ marginLeft: '1.2rem', marginTop: '0.4rem' }}>
+            <li>Violate any applicable law, regulation, or third-party rights</li>
+            <li>Transmit any malicious code, viruses, or harmful materials</li>
+            <li>Attempt to gain unauthorised access to any part of the Services</li>
+            <li>Use the Services to generate misleading, fraudulent, or deceptive marketing content</li>
+            <li>Interfere with or disrupt the integrity or performance of the Services</li>
+            <li>Reverse engineer, decompile, or disassemble any part of the Services</li>
+            <li>Scrape, crawl, or systematically extract data from the platform</li>
+            <li>Resell, sublicense, or commercially exploit the Services without authorisation</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>7. Disclaimer of Warranties</h2>
+          <p className="subtle">THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND ACCURACY. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, OR THAT AI-GENERATED CONTENT WILL ACHIEVE SPECIFIC MARKETING RESULTS.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>8. Limitation of Liability</h2>
+          <p className="subtle">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL DOVROYN, ANGLOW DIGITAL PTY LTD, OR THEIR DIRECTORS, EMPLOYEES, PARTNERS, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES. OUR TOTAL LIABILITY SHALL NOT EXCEED THE AMOUNT YOU PAID TO US IN THE TWELVE (12) MONTHS PRIOR TO THE EVENT GIVING RISE TO LIABILITY.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>9. Indemnification</h2>
+          <p className="subtle">You agree to defend, indemnify, and hold harmless Dovroyn and Anglow Digital PTY LTD, including their affiliates, licensors, and service providers, and their respective officers, directors, employees, contractors, agents, licensors, suppliers, successors, and assigns from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of the Services.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>10. Governing Law and Jurisdiction</h2>
+          <p className="subtle">These Terms shall be governed by and construed in accordance with the laws of Australia, without regard to its conflict of law provisions. Any legal action or proceeding arising under these Terms shall be brought exclusively in the courts located in Australia, and you consent to the personal jurisdiction and venue therein.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>11. Third-Party Services</h2>
+          <p className="subtle">The Services integrate with third-party platforms and services including but not limited to Supabase (authentication and data storage), Stripe (payment processing), OpenAI/Claude (AI analysis), and Vercel (hosting). Your use of these third-party services is subject to their respective terms and privacy policies. We are not responsible for the practices of these third parties.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>12. Changes to These Terms</h2>
+          <p className="subtle">We may revise these Terms at any time at our sole discretion. Material changes will be effective immediately upon posting the updated Terms on this page with a revised "Last updated" date. Your continued use of the Services after such changes constitutes acceptance of the revised Terms. It is your responsibility to review these Terms periodically.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>13. Severability</h2>
+          <p className="subtle">If any provision of these Terms is held to be invalid, illegal, or unenforceable by a court of competent jurisdiction, such provision shall be eliminated or limited to the minimum extent necessary, and the remaining provisions shall continue in full force and effect.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>14. Entire Agreement</h2>
+          <p className="subtle">These Terms, together with our Privacy Policy, constitute the entire agreement between you and Dovroyn regarding the Services and supersede all prior agreements, understandings, and communications, whether written or oral.</p>
+        </section>
+
+        <section>
+          <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>15. Contact Us</h2>
+          <p className="subtle">If you have any questions about these Terms, please contact us:</p>
+          <p className="subtle" style={{ marginTop: '0.4rem' }}><strong>Email:</strong> <a href="mailto:support@dovroyn.com">support@dovroyn.com</a><br />
+          <strong>Business:</strong> Anglow Digital PTY LTD<br />
+          <strong>Website:</strong> <a href="https://dovroyn.com">dovroyn.com</a></p>
+        </section>
       </article>
     </LegalPageShell>
   );
