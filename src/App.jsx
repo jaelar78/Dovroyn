@@ -942,7 +942,7 @@ function LandingPage({ session }) {
       {/* Announcement bar */}
       <div className="announcement-bar">
         <span className="announcement-pill">New</span>
-        <span>Free plan now available — 1 pod, 4 content days per month. No credit card required.</span>
+        <span>Free plan now available — 1 pod, AI analysis, no credit card required.</span>
       </div>
 
       <section className="hero-block panel hero-block-v2">
