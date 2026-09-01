@@ -3093,6 +3093,17 @@ select {
   padding: 0 1.8rem;
   font-size: 0.95rem;
 }
+
+/* Locked pricing features */
+.pricing-features li.locked {
+  color: rgba(140, 122, 93, 0.5);
+  font-style: italic;
+}
+
+.pricing-features li.locked::before {
+  background: rgba(140, 122, 93, 0.25);
+}
+
 .pod-library-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

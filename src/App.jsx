@@ -240,16 +240,16 @@ const PRICING_TIERS = [
     name: 'Free',
     monthly: '$0',
     yearly: '$0',
-    bestFor: 'Best for trying Dovroyn with one brand or idea.',
+    bestFor: 'See what a pod can do. Upgrade to unlock your full marketing plan.',
     features: [
       '1 active pod',
       'Website or image analysis',
       'AI brand/tone summary',
       'Audience and offer direction',
-      'Campaign angles',
-      '1 campaign posting day per week',
-      'Manual budget tracking',
-      'Core pod workspace',
+      'Campaign angles — upgrade to unlock',
+      'Content calendar — upgrade to unlock',
+      'Posting schedule — upgrade to unlock',
+      'Budget tracking — upgrade to unlock',
     ],
     stripeKey: null,
     highlight: false,
@@ -330,16 +330,16 @@ const PRICING_PAGE_TIERS = [
     name: 'Free',
     monthly: '$0',
     yearly: '$0',
-    bestFor: 'Best for trying Dovroyn with one brand or idea.',
+    bestFor: 'See what a pod can do. Upgrade to unlock your full marketing plan.',
     features: [
       '1 active pod',
       'Website or image analysis',
       'AI brand/tone summary',
       'Audience and offer direction',
-      'Campaign angles',
-      '1 campaign posting day per week',
-      'Manual budget tracking',
-      'Core pod workspace',
+      'Campaign angles — upgrade to unlock',
+      'Content calendar — upgrade to unlock',
+      'Posting schedule — upgrade to unlock',
+      'Budget tracking — upgrade to unlock',
     ],
     stripeKey: null,
     highlight: false,
@@ -1158,7 +1158,9 @@ function LandingPage({ session }) {
               )}
               <p className="pricing-best-for">{tier.bestFor}</p>
               <ul className="pricing-features">
-                {tier.features.map((f) => <li key={f}>{f}</li>)}
+                {tier.features.map((f) => (
+                  <li key={f} className={f.includes('upgrade to unlock') ? 'locked' : ''}>{f}</li>
+                ))}
               </ul>
               {tier.stripeKey && STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`] ? (
                 <a className="button button-primary" href={STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`]}>Subscribe</a>
@@ -1408,7 +1410,9 @@ function PricingPage() {
             )}
             <p className="pricing-best-for">{tier.bestFor}</p>
             <ul className="pricing-features">
-              {tier.features.map((f) => <li key={f}>{f}</li>)}
+              {tier.features.map((f) => (
+                <li key={f} className={f.includes('upgrade to unlock') ? 'locked' : ''}>{f}</li>
+              ))}
             </ul>
             {tier.stripeKey && STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`] ? (
               <a className="button button-primary" href={STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`]}>Subscribe</a>

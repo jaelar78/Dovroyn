@@ -7,8 +7,8 @@ export const PLAN_ENTITLEMENTS = Object.freeze({
     monthlyPrice: 0,
     yearlyPrice: 0,
     maxPods: 1,
-    monthlyContentDays: 4,
-    weeklyPostingDays: 1,
+    monthlyContentDays: 0,
+    weeklyPostingDays: 0,
   }),
   starter: Object.freeze({
     key: 'starter',
