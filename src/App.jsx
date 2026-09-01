@@ -67,6 +67,7 @@ import {
 } from 'react-icons/fa6';
 import { SiGoogleads, SiApplenews, SiNextdoor, SiBluesky, SiSubstack } from 'react-icons/si';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import './index.css';
 import { supabase, supabaseConfigured } from './lib/supabaseClient';
 import Header from './components/Header';
@@ -851,6 +852,7 @@ function App() {
   return (
     <BrowserRouter>
       <Analytics />
+      <SpeedInsights />
       <Routes>
         <Route path="/" element={<LandingPage session={session} />} />
         <Route path="/login" element={<AuthPage session={session} defaultMode="login" />} />
