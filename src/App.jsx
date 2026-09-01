@@ -1529,8 +1529,9 @@ function PrivacyPage() {
             <li><strong>Portability:</strong> Request transfer of your data to another service</li>
             <li><strong>Objection:</strong> Object to certain types of processing, such as direct marketing</li>
             <li><strong>Withdraw Consent:</strong> Withdraw consent where processing is based on consent</li>
+            <li><strong>Restrict Processing:</strong> Request limited use of your data in certain circumstances</li>
           </ul>
-          <p className="subtle" style={{ marginTop: '0.5rem' }}>To exercise these rights, contact us at <a href="mailto:support@dovroyn.com">support@dovroyn.com</a>. We will respond within 30 days.</p>
+          <p className="subtle" style={{ marginTop: '0.5rem' }}><strong>Regional rights:</strong> If you are in the European Union or United Kingdom, the GDPR grants you these rights. If you are in California, USA, the CCPA grants you rights to know, delete, and opt out of sale of personal information. We do not sell personal information. To exercise any of these rights, contact us at <a href="mailto:support@dovroyn.com">support@dovroyn.com</a>. We will respond within 30 days.</p>
         </section>
 
         <section>
@@ -1650,6 +1651,7 @@ function TermsPage() {
         <section>
           <h2 className="waitlist-heading" style={{ marginBottom: '0.5rem' }}>10. Governing Law and Jurisdiction</h2>
           <p className="subtle">These Terms shall be governed by and construed in accordance with the laws of Australia, without regard to its conflict of law provisions. Any legal action or proceeding arising under these Terms shall be brought exclusively in the courts located in Australia, and you consent to the personal jurisdiction and venue therein.</p>
+          <p className="subtle" style={{ marginTop: '0.5rem' }}><strong>Consumer protection laws:</strong> Nothing in these Terms excludes or limits any rights or remedies you may have under the consumer protection laws of your country or state of residence. If you are a consumer in the European Union, United Kingdom, or other jurisdictions with mandatory consumer protection laws, those laws apply to you and may override certain provisions of these Terms to the extent required by law.</p>
         </section>
 
         <section>
