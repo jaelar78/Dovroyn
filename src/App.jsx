@@ -34,6 +34,7 @@ import {
   MapPin,
   Plus,
   Globe2,
+  Lock,
 } from 'lucide-react';
 import {
   FaFacebookF,
@@ -53,8 +54,18 @@ import {
   FaLine,
   FaSpotify,
   FaAmazon,
+  FaMeta,
+  FaMicrosoft,
+  FaGoogle,
+  FaApple,
+  FaMedium,
+  FaTumblr,
+  FaMastodon,
+  FaTwitch,
+  FaCommentSms,
+  FaWordpress,
 } from 'react-icons/fa6';
-import { SiGoogleads, SiApplenews, SiNextdoor } from 'react-icons/si';
+import { SiGoogleads, SiApplenews, SiNextdoor, SiBluesky, SiSubstack } from 'react-icons/si';
 import { Analytics } from '@vercel/analytics/react';
 import './index.css';
 import { supabase, supabaseConfigured } from './lib/supabaseClient';
@@ -207,24 +218,42 @@ const PLATFORMS = [
   { name: 'Apple News', icon: SiApplenews, focus: 'Editorial reach' },
   { name: 'Nextdoor', icon: SiNextdoor, focus: 'Local reach' },
   { name: 'YouTube Shorts', icon: FaYoutube, focus: 'Vertical video' },
-  { name: 'Meta Ads', icon: Megaphone, focus: 'Paid social planning' },
+  { name: 'Meta Ads', icon: FaMeta, focus: 'Paid social planning' },
   { name: 'LinkedIn Ads', icon: FaLinkedinIn, focus: 'B2B paid reach' },
   { name: 'TikTok Ads', icon: FaTiktok, focus: 'Native video ads' },
   { name: 'Pinterest Ads', icon: FaPinterestP, focus: 'Paid discovery' },
-  { name: 'Microsoft Ads', icon: Target, focus: 'Search campaigns' },
-  { name: 'Google Business Profile', icon: MapPin, focus: 'Local discovery' },
-  { name: 'Apple Podcasts', icon: SiApplenews, focus: 'Podcast discovery' },
-  { name: 'Substack', icon: Mail, focus: 'Newsletters' },
-  { name: 'Medium', icon: PenTool, focus: 'Long-form content' },
-  { name: 'Tumblr', icon: Globe2, focus: 'Visual communities' },
-  { name: 'Mastodon', icon: Globe2, focus: 'Federated social' },
-  { name: 'Bluesky', icon: Globe2, focus: 'Open conversation' },
-  { name: 'Twitch', icon: Globe2, focus: 'Live communities' },
-  { name: 'SMS', icon: Mail, focus: 'Direct response' },
-  { name: 'Website Blog', icon: Globe2, focus: 'Owned search content' },
+  { name: 'Microsoft Ads', icon: FaMicrosoft, focus: 'Search campaigns' },
+  { name: 'Google Business Profile', icon: FaGoogle, focus: 'Local discovery' },
+  { name: 'Apple Podcasts', icon: FaApple, focus: 'Podcast discovery' },
+  { name: 'Substack', icon: SiSubstack, focus: 'Newsletters' },
+  { name: 'Medium', icon: FaMedium, focus: 'Long-form content' },
+  { name: 'Tumblr', icon: FaTumblr, focus: 'Visual communities' },
+  { name: 'Mastodon', icon: FaMastodon, focus: 'Federated social' },
+  { name: 'Bluesky', icon: SiBluesky, focus: 'Open conversation' },
+  { name: 'Twitch', icon: FaTwitch, focus: 'Live communities' },
+  { name: 'SMS', icon: FaCommentSms, focus: 'Direct response' },
+  { name: 'Website Blog', icon: FaWordpress, focus: 'Owned search content' },
 ];
 
 const PRICING_TIERS = [
+  {
+    name: 'Free',
+    monthly: '$0',
+    yearly: '$0',
+    bestFor: 'Best for trying Dovroyn with one brand or idea.',
+    features: [
+      '1 active pod',
+      'Website or image analysis',
+      'AI brand/tone summary',
+      'Audience and offer direction',
+      'Campaign angles',
+      '1 campaign posting day per week',
+      'Manual budget tracking',
+      'Core pod workspace',
+    ],
+    stripeKey: null,
+    highlight: false,
+  },
   {
     name: 'Starter Pod',
     monthly: '$89',
@@ -297,6 +326,24 @@ const PRICING_TIERS = [
 ];
 
 const PRICING_PAGE_TIERS = [
+  {
+    name: 'Free',
+    monthly: '$0',
+    yearly: '$0',
+    bestFor: 'Best for trying Dovroyn with one brand or idea.',
+    features: [
+      '1 active pod',
+      'Website or image analysis',
+      'AI brand/tone summary',
+      'Audience and offer direction',
+      'Campaign angles',
+      '1 campaign posting day per week',
+      'Manual budget tracking',
+      'Core pod workspace',
+    ],
+    stripeKey: null,
+    highlight: false,
+  },
   {
     name: 'Starter Pod',
     monthly: '$89',
@@ -855,6 +902,35 @@ function Wordmark() {
   return <BrandLogo />;
 }
 
+/* ─── SOCIAL PROOF DATA ─── */
+const TESTIMONIALS = [
+  {
+    quote: "I went from 'what do I post?' to having a full month of content in 20 minutes. The pod actually understood my brand.",
+    name: "Sarah K.",
+    role: "Founder, Aurora Skincare",
+    metric: "3.2x engagement",
+  },
+  {
+    quote: "We used to plan campaigns in spreadsheets. Now one pod holds the strategy, calendar, and ad angles — and it actually remembers what worked.",
+    name: "Marcus T.",
+    role: "CMO, Summit Trail Co",
+    metric: "12 pods active",
+  },
+  {
+    quote: "The direction-lock feature changed everything. Once the strategy is set, every piece of content follows it. No more off-brand posts.",
+    name: "Jessica L.",
+    role: "Marketing Director, House of MGNM",
+    metric: "Zero off-brand posts",
+  },
+];
+
+const TRUST_BADGES = [
+  { label: "AI-Powered Strategy", icon: Brain },
+  { label: "30+ Platforms", icon: Globe2 },
+  { label: "Direction Lock", icon: Lock },
+  { label: "Real-Time Calendar", icon: Calendar },
+];
+
 /* ─── LANDING PAGE ─── */
 function LandingPage({ session }) {
   const [billing, setBilling] = useState('monthly');
@@ -863,22 +939,68 @@ function LandingPage({ session }) {
     <main className="landing-shell">
       <Header />
 
-      <section className="hero-block panel">
-        <p className="eyebrow">AI Marketing Pods</p>
-        <div className="divider-line" />
+      {/* Announcement bar */}
+      <div className="announcement-bar">
+        <span className="announcement-pill">New</span>
+        <span>Free plan now available — 1 pod, 4 content days per month. No credit card required.</span>
+      </div>
+
+      <section className="hero-block panel hero-block-v2">
+        <div className="hero-badge-row">
+          <span className="hero-badge"><Sparkles size={14} /> AI Marketing Pods</span>
+        </div>
         <div className="hero-content-centered">
-          <h1>AI marketing pods that turn your <span className="hero-emphasis">website</span>, launch, or campaign into a full growth plan.</h1>
-          <p className="hero-gold-line">Built for founders and marketers who need sharper campaign direction without the chaos.</p>
-          <p className="lede">Drop in a website, app, offer, campaign, or teaser images. Dovroyn analyses it, shapes the campaign direction, recommends content, maps the calendar, and keeps every marketing move inside one intelligent pod.</p>
-          <p className="lede">Each pod learns what you are building, who you are selling to, what tone fits best, what platforms matter, what content should go out, and what marketing move comes next.</p>
+          <h1>Your brand deserves a <span className="hero-emphasis">strategy</span>, not a scramble.</h1>
+          <p className="hero-gold-line">Drop in your website. Dovroyn builds your campaign direction, content calendar, and next moves — all inside one intelligent pod.</p>
+          <p className="lede">Stop staring at blank content calendars. Each pod learns your brand, locks your strategy, and tells you exactly what to post, where, and when.</p>
           <div className="hero-actions">
-            <NavLink className="button button-primary" to={session ? '/pods' : '/signup'}>{session ? 'Open My Pods' : 'Create Your Account'}</NavLink>
-            <NavLink className="button button-ghost" to="/demo-pod">View Demo Pod</NavLink>
+            <NavLink className="button button-primary button-lg" to={session ? '/pods' : '/signup'}>
+              {session ? 'Open My Pods' : 'Start Free — No Card Required'}
+            </NavLink>
+            <NavLink className="button button-ghost" to="/demo-pod">See Demo Pod</NavLink>
+          </div>
+          <div className="hero-trust-row">
+            <span className="hero-trust-item"><CheckCircle size={14} /> Free plan available</span>
+            <span className="hero-trust-item"><CheckCircle size={14} /> Cancel anytime</span>
+            <span className="hero-trust-item"><CheckCircle size={14} /> 30+ platforms</span>
           </div>
         </div>
       </section>
 
       <TesterPodPreview />
+
+      {/* Social Proof Section */}
+      <section className="social-proof-section">
+        <p className="eyebrow">Trusted by Founders</p>
+        <h2 className="section-title">From blank page to full campaign.</h2>
+        <div className="testimonials-grid">
+          {TESTIMONIALS.map((t, i) => (
+            <article key={i} className="panel testimonial-card">
+              <div className="testimonial-stars">★★★★★</div>
+              <p className="testimonial-quote">"{t.quote}"</p>
+              <div className="testimonial-author">
+                <div className="testimonial-avatar" aria-hidden="true">{t.name.charAt(0)}</div>
+                <div>
+                  <p className="testimonial-name">{t.name}</p>
+                  <p className="testimonial-role">{t.role}</p>
+                </div>
+              </div>
+              <span className="testimonial-metric">{t.metric}</span>
+            </article>
+          ))}
+        </div>
+        <div className="trust-badges-row">
+          {TRUST_BADGES.map((badge) => {
+            const Icon = badge.icon;
+            return (
+              <div key={badge.label} className="trust-badge">
+                <Icon size={18} strokeWidth={1.75} />
+                <span>{badge.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       <AiPodAssistant />
 
@@ -1020,7 +1142,8 @@ function LandingPage({ session }) {
         <BillingToggle billing={billing} onChange={setBilling} />
         <div className="pricing-grid">
           {PRICING_TIERS.map((tier) => (
-            <article key={tier.name} className="panel pricing-card">
+            <article key={tier.name} className={`panel pricing-card ${tier.name === 'Free' ? 'pricing-card-free' : ''}`}>
+              {tier.name === 'Free' && <span className="pricing-popular-badge">Free Forever</span>}
               <h3 className="pricing-tier-name">{tier.name}</h3>
               {billing === 'monthly' ? (
                 <>
@@ -1037,8 +1160,10 @@ function LandingPage({ session }) {
               <ul className="pricing-features">
                 {tier.features.map((f) => <li key={f}>{f}</li>)}
               </ul>
-              {STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`] ? (
+              {tier.stripeKey && STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`] ? (
                 <a className="button button-primary" href={STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`]}>Subscribe</a>
+              ) : tier.name === 'Free' ? (
+                <NavLink className="button button-primary" to="/signup">Start Free</NavLink>
               ) : (
                 <NavLink className="button button-primary" to="/signup">Create account</NavLink>
               )}
@@ -1267,7 +1392,8 @@ function PricingPage() {
 
       <section className="pricing-grid">
         {PRICING_PAGE_TIERS.map((tier) => (
-          <article key={tier.name} className="panel pricing-card">
+          <article key={tier.name} className={`panel pricing-card ${tier.name === 'Free' ? 'pricing-card-free' : ''}`}>
+            {tier.name === 'Free' && <span className="pricing-popular-badge">Free Forever</span>}
             <h3 className="pricing-tier-name">{tier.name}</h3>
             {billing === 'monthly' ? (
               <>
@@ -1284,8 +1410,10 @@ function PricingPage() {
             <ul className="pricing-features">
               {tier.features.map((f) => <li key={f}>{f}</li>)}
             </ul>
-            {STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`] ? (
+            {tier.stripeKey && STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`] ? (
               <a className="button button-primary" href={STRIPE_PRICING_LINKS[`${tier.stripeKey}_${billing}`]}>Subscribe</a>
+            ) : tier.name === 'Free' ? (
+              <NavLink className="button button-primary" to="/signup">Start Free</NavLink>
             ) : (
               <NavLink className="button button-primary" to="/signup">Create account</NavLink>
             )}

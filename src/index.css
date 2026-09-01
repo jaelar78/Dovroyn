@@ -2858,7 +2858,241 @@ select {
   }
 }
 
-/* Lean outer pod library. Rich tools stay inside each pod. */
+/* Announcement bar */
+.announcement-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.2rem;
+  background: linear-gradient(135deg, rgba(216, 184, 103, 0.18), rgba(184, 138, 50, 0.1));
+  border: 1px solid var(--gold-border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  color: var(--navy);
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.announcement-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  background: var(--gold);
+  color: var(--panel);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: 999px;
+}
+
+/* Hero v2 */
+.hero-block-v2 {
+  padding: clamp(3rem, 6vw, 5rem);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(216, 184, 103, 0.22), transparent 70%),
+    radial-gradient(ellipse 45% 45% at 5% 100%, rgba(7, 22, 45, 0.06), transparent 70%),
+    linear-gradient(180deg, var(--panel), var(--background) 140%);
+}
+
+.hero-badge-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(216, 184, 103, 0.14);
+  border: 1px solid var(--gold-border);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.hero-actions .button-lg {
+  min-height: 52px;
+  padding: 0 2rem;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 24px rgba(7, 22, 45, 0.22);
+}
+
+.hero-trust-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.hero-trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.hero-trust-item svg {
+  color: var(--success);
+}
+
+/* Social Proof Section */
+.social-proof-section {
+  display: grid;
+  gap: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.testimonial-card {
+  position: relative;
+  padding: 1.8rem 1.5rem 1.5rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(160deg, var(--panel) 60%, rgba(243, 233, 216, 0.4));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(7, 22, 45, 0.14);
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+
+.testimonial-quote {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--navy);
+  font-style: italic;
+  flex: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+  color: var(--panel);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: grid;
+  place-items: center;
+}
+
+.testimonial-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.testimonial-role {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.testimonial-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.7rem;
+  background: rgba(46, 125, 79, 0.1);
+  border: 1px solid rgba(46, 125, 79, 0.25);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--success);
+  width: fit-content;
+}
+
+.trust-badges-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--gold-border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.trust-badge svg {
+  color: var(--gold);
+}
+
+/* Free tier pricing card */
+.pricing-card-free {
+  border-color: rgba(46, 125, 79, 0.35);
+}
+
+.pricing-card-free::before {
+  background: linear-gradient(90deg, transparent, var(--success) 35%, #3d9b62 50%, var(--success) 65%, transparent);
+}
+
+.pricing-popular-badge {
+  position: absolute;
+  top: 0.9rem;
+  right: -2.2rem;
+  padding: 0.25rem 2.5rem;
+  background: var(--success);
+  color: var(--panel);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transform: rotate(35deg);
+  box-shadow: 0 2px 8px rgba(46, 125, 79, 0.3);
+}
+
+/* Platform icon sizing */
+.platform-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Button sizes */
+.button-lg {
+  min-height: 52px;
+  padding: 0 1.8rem;
+  font-size: 0.95rem;
+}
 .pod-library-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

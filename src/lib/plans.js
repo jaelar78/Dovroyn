@@ -6,9 +6,9 @@ export const PLAN_ENTITLEMENTS = Object.freeze({
     name: 'Free',
     monthlyPrice: 0,
     yearlyPrice: 0,
-    maxPods: 0,
-    monthlyContentDays: 0,
-    weeklyPostingDays: 0,
+    maxPods: 1,
+    monthlyContentDays: 4,
+    weeklyPostingDays: 1,
   }),
   starter: Object.freeze({
     key: 'starter',

@@ -87,7 +87,26 @@ export default function AiPodAssistant() {
   };
 
   const handleSuggestedAsk = (qa, index) => {
-    queuePreviewReply(qa.question, index);
+    // For suggested questions, use the pre-written answer directly
+    // This ensures the chat works even if the API is down
+    const cleanQuestion = qa.question.trim();
+    if (!cleanQuestion || thinking) return;
+
+    setActiveQuestion(index);
+    setMessages((currentMessages) => [
+      ...currentMessages,
+      { id: `user-${Date.now()}`, sender: 'user', text: cleanQuestion },
+    ]);
+    setThinking(true);
+    
+    // Simulate typing delay for natural feel
+    setTimeout(() => {
+      setMessages((currentMessages) => [
+        ...currentMessages,
+        { id: `assistant-${Date.now()}`, sender: 'assistant', text: qa.answer },
+      ]);
+      setThinking(false);
+    }, 400 + Math.random() * 500);
   };
 
   const handleSubmit = (event) => {
@@ -95,6 +114,33 @@ export default function AiPodAssistant() {
     const question = draft.trim();
     if (!question) return;
     setDraft('');
+
+    // Check if it matches a suggested question exactly
+    const exactMatch = ASSISTANT_QA.find((qa) => qa.question.toLowerCase().trim() === question.toLowerCase().trim());
+    if (exactMatch) {
+      handleSuggestedAsk(exactMatch, null);
+      return;
+    }
+
+    // Check for pattern match
+    const patternMatch = TYPED_MATCHERS.find(({ pattern }) => pattern.test(question));
+    if (patternMatch) {
+      setMessages((currentMessages) => [
+        ...currentMessages,
+        { id: `user-${Date.now()}`, sender: 'user', text: question },
+      ]);
+      setThinking(true);
+      setTimeout(() => {
+        setMessages((currentMessages) => [
+          ...currentMessages,
+          { id: `assistant-${Date.now()}`, sender: 'assistant', text: patternMatch.answer },
+        ]);
+        setThinking(false);
+      }, 400 + Math.random() * 500);
+      return;
+    }
+
+    // Otherwise try the API
     queuePreviewReply(question, null);
   };
 
